@@ -41,7 +41,7 @@
                         <td><p class="mb-0">{{ number_format($file->file_size / 1048576, 2) }} MB</p></td>
                         <td class="d-none d-md-flex">{{ $file->description }}</td>
                         <td class="text-center">
-                            <a href="{{ asset('storage/' . $file->file_path) }}" class="btn btn-primary"><i class="fa fa-download"></i><span class="d-none d-md-inline ms-1">Download</span></a>
+                            <a href="{{ asset('storage/app/public/' . $file->file_path) }}" class="btn btn-primary"><i class="fa fa-download"></i><span class="d-none d-md-inline ms-1">Download</span></a>
                             @if ($file->created_by === Auth::user()->id)
                                 <form id="delete-form-{{ $file->id }}" class="d-inline" action="{{ route('files.delete', $file->id) }}" method="POST">
                                     @csrf
