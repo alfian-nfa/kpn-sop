@@ -46,7 +46,7 @@ class FileController extends Controller
         $description = $validatedData['description'];
         $groupCompany = $request->groupCompany;
 
-        $existingFile = File::where('file_name', $fileName)->first();
+        $existingFile = File::where('name', $fileName)->first();
         if ($existingFile) {
             return back()->withErrors(['fileName' => 'File with this name already exists.']);
         }
