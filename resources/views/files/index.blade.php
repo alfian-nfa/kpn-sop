@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css" rel="stylesheet" />
 </head>
 <body>
 <div class="container mt-5">
@@ -27,7 +29,7 @@
                     <th>No</th>
                     <th>File Name</th>
                     <th>Size</th>
-                    <th>Description</th>
+                    <th class="d-none d-md-flex">Description</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -37,14 +39,14 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $file->name }}</td>
                         <td><p class="mb-0">{{ number_format($file->file_size / 1048576, 2) }} MB</p></td>
-                        <td>{{ $file->description }}</td>
+                        <td class="d-none d-md-flex">{{ $file->description }}</td>
                         <td class="text-center">
-                            <a href="{{ asset('storage/' . $file->file_path) }}" class="btn btn-primary">Download</a>
+                            <a href="{{ asset('storage/' . $file->file_path) }}" class="btn btn-primary"><i class="fa fa-download"></i><span class="d-none d-md-inline ms-1">Download</span></a>
                             @if ($file->created_by === Auth::user()->id)
                                 <form id="delete-form-{{ $file->id }}" class="d-inline" action="{{ route('files.delete', $file->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash-can"></i><span class="d-none d-md-inline ms-1">Delete</span></button>
                                 </form>
                             @endif
                         </td>
