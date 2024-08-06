@@ -31,8 +31,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 align-self-center">
                     <div class="card">
-                        <form action="{{ route('files.store') }}" method="POST" enctype="multipart/form-data">
-                        <div class="card-body">
+                        <form id="submitForm" action="{{ route('files.store') }}" method="POST" enctype="multipart/form-data">
+                            <div class="card-body">
                                 @csrf
                                 <input type="hidden" class="form-control" id="groupCompany" name="groupCompany" value="{{ $data->group_company }}" readonly>
                                 <div class="mb-3">
@@ -41,17 +41,17 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="fileName" class="form-label">File Name</label>
-                                    <input type="text" class="form-control" id="fileName" name="fileName" placeholder="Enter File name.." required>
+                                    <input type="text" class="form-control" id="fileName" name="fileName" placeholder="Enter File name.." value="{{ old('fileName') }}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">File Description</label>
-                                    <textarea class="form-control" name="description" id="description" rows="3" placeholder="Enter description.."></textarea>
+                                    <textarea class="form-control" name="description" id="description" rows="3" placeholder="Enter description.." value="{{ old('description') }}" required></textarea>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
                         </form>
+                            <div class="card-footer d-flex justify-content-end">
+                                <button type="submit" id="submitButton" class="btn btn-primary"><span class="spinner-border spinner-border-sm me-1 d-none" role="status" aria-hidden="true"></span>Save</button>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -59,5 +59,7 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ asset('js/script.js') }}?v={{ config('app.version') }}"></script>
 </body>
 </html>

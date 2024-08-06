@@ -46,8 +46,8 @@
                                 <form id="delete-form-{{ $file->id }}" class="d-inline" action="{{ route('files.delete', $file->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash-can"></i><span class="d-none d-md-inline ms-1">Delete</span></button>
                                 </form>
+                                <a href="javascript:void(0)" onclick="deleteFile('delete-form-{{ $file->id }}');" class="btn btn-danger me-1"><span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span><i class="fa fa-trash-can"></i><span class="d-none d-md-inline ms-1">Delete</span></a>
                             @endif
                         </td>
                     </tr>
@@ -58,5 +58,8 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('js/script.js') }}?v={{ config('app.version') }}"></script>
 </body>
 </html>
