@@ -9,7 +9,7 @@ deployment:
 
     # Copy public assets to the public_html directory
     # - /bin/cp -r public/assets public/css public/img public/images public/js public/scss public/vendor /home/hcis8257/public_html/kpnsop.hcis.dev
-    - /bin/cp -r public/build public/img public/js /home/hcispanel/public_html/kpnsop.hcis.live
+    - /bin/cp -r public/img public/js /home/hcispanel/public_html/kpnsop.hcis.live
 
     # Change directory to the deployment path
     - cd $DEPLOYPATH
