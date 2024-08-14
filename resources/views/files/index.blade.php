@@ -24,42 +24,45 @@
 
             <div class="card">
                 <div class="card-body">
-                    <table id="sopTable" class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>File Name</th>
-                            <th>Size</th>
-                            <th>Description</th>
-                            <th class="text-center">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach ($files as $file)
+                    <div class="table-responsive">
+
+                        <table id="sopTable" class="table table-hover">
+                            <thead>
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $file->name }}</td>
-                                <td><p class="mb-0">{{ number_format($file->file_size / 1048576, 2) }} MB</p></td>
-                                <td>{{ $file->description }}</td>
-                                <td class="text-center">
-                                    <a href="{{ asset('storage/app/public/' . $file->file_path) }}" class="btn btn-primary"><i class="fa fa-download"></i><span class="d-none d-md-inline ms-1">Download</span></a>
-                                    @if ($file->created_by === Auth::user()->id)
-                                        <form id="{{ $file->id }}" class="d-inline" action="{{ route('files.delete', $file->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-                                        <a href="#" data-form-id="{{ $file->id }}" class="btn btn-danger me-1 delete-button">
-                                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                                            <i class="fa fa-trash-can"></i>
-                                            <span class="d-none d-md-inline ms-1">Delete</span>
-                                        </a>
-                                        
-                                    @endif
-                                </td>
+                                <th>No</th>
+                                <th>File Name</th>
+                                <th>Size</th>
+                                <th>Description</th>
+                                <th class="text-center">Action</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            @foreach ($files as $file)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $file->name }}</td>
+                                    <td><p class="mb-0">{{ number_format($file->file_size / 1048576, 2) }} MB</p></td>
+                                    <td>{{ $file->description }}</td>
+                                    <td class="text-center">
+                                        <a href="{{ asset('storage/app/public/' . $file->file_path) }}" class="btn btn-primary"><i class="fa fa-download"></i><span class="d-none d-md-inline ms-1">Download</span></a>
+                                        @if ($file->created_by === Auth::user()->id)
+                                            <form id="{{ $file->id }}" class="d-inline" action="{{ route('files.delete', $file->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                            <a href="#" data-form-id="{{ $file->id }}" class="btn btn-danger me-1 delete-button">
+                                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                                <i class="fa fa-trash-can"></i>
+                                                <span class="d-none d-md-inline ms-1">Delete</span>
+                                            </a>
+                                            
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
