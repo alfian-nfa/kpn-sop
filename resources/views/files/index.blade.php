@@ -29,12 +29,12 @@
                 <div class="card-body">
                     <table id="sopTable" class="table table-hover">
                         <thead>
-                        <tr class="text-center">
+                        <tr>
                             <th>No</th>
                             <th>File Name</th>
                             <th>Size</th>
                             <th>Description</th>
-                            <th>Action</th>
+                            <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
