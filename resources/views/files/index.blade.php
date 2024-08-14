@@ -43,7 +43,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $file->name }}</td>
                                 <td><p class="mb-0">{{ number_format($file->file_size / 1048576, 2) }} MB</p></td>
-                                <td class="d-none d-md-table-row">{{ $file->description }}</td>
+                                <td class="d-none d-md-inline-flex">{{ $file->description }}</td>
                                 <td class="text-center">
                                     <a href="{{ asset('storage/app/public/' . $file->file_path) }}" class="btn btn-primary"><i class="fa fa-download"></i><span class="d-none d-md-inline ms-1">Download</span></a>
                                     @if ($file->created_by === Auth::user()->id)
