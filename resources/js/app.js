@@ -14,6 +14,8 @@ import './script';
 
 $(document).ready( function () {
     $('#sopTable').DataTable({
+        scrollCollapse: true,
+        scrollX: true,
         responsive: true,
         paging: false
     });
