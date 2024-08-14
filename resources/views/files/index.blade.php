@@ -44,11 +44,16 @@
                                 <td class="text-center">
                                     <a href="{{ asset('storage/app/public/' . $file->file_path) }}" class="btn btn-primary"><i class="fa fa-download"></i><span class="d-none d-md-inline ms-1">Download</span></a>
                                     @if ($file->created_by === Auth::user()->id)
-                                        <form id="delete-form-{{ $file->id }}" class="d-inline" action="{{ route('files.delete', $file->id) }}" method="POST">
+                                        <form id="{{ $file->id }}" class="d-inline" action="{{ route('files.delete', $file->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                         </form>
-                                        <a href="javascript:void(0)" onclick="deleteFile('delete-form-{{ $file->id }}');" class="btn btn-danger me-1"><span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span><i class="fa fa-trash-can"></i><span class="d-none d-md-inline ms-1">Delete</span></a>
+                                        <a href="#" data-form-id="{{ $file->id }}" class="btn btn-danger me-1 delete-button">
+                                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                            <i class="fa fa-trash-can"></i>
+                                            <span class="d-none d-md-inline ms-1">Delete</span>
+                                        </a>
+                                        
                                     @endif
                                 </td>
                             </tr>

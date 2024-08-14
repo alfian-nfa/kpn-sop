@@ -23,10 +23,14 @@ $('#submitButton').on('click', function(e) {
     }
 });
 
-function deleteFile(formId) {
-    const submitButton = $(event.target).closest(".btn-danger");
+// Add event listener to the document for delegating click events
+$(document).on('click', '.delete-button', function (event) {
+    event.preventDefault();
+    
+    const formId = $(this).data('form-id');
+    const submitButton = $(this);
     const spinner = submitButton.find(".spinner-border");
-    const icon = $(submitButton).find('.fa-trash-can');
+    const icon = submitButton.find('.fa-trash-can');
 
     Swal.fire({
         title: "Are you sure?",
@@ -48,4 +52,4 @@ function deleteFile(formId) {
             document.getElementById(formId).submit();
         }
     });
-}
+});
