@@ -71,7 +71,8 @@
 <script>
     $(document).ready( function () {
         $('#sopTable').DataTable({
-            responsive: true
+            responsive: true,
+            paging: false
         });
     } );
 </script>
