@@ -33,7 +33,7 @@
                             <th>No</th>
                             <th>File Name</th>
                             <th>Size</th>
-                            <th class="d-none d-md-flex">Description</th>
+                            <th>Description</th>
                             <th>Action</th>
                         </tr>
                         </thead>
