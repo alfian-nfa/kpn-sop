@@ -24,8 +24,6 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="table-responsive">
-
                         <table id="sopTable" class="table table-hover">
                             <thead>
                             <tr>
@@ -62,7 +60,6 @@
                             @endforeach
                             </tbody>
                         </table>
-                    </div>
                 </div>
             </div>
         </div>
