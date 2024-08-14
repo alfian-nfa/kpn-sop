@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Management</title>
     <link rel="icon" type="image/ico" href="{{ asset('storage/app/public/img/favicon.ico') }}" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.css" rel="stylesheet" />  
+    @vite(['resources/css/app.css'])
 </head>
 <body>
 <div class="container mt-5">
@@ -63,18 +60,6 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="{{ asset('js/script.js') }}?v={{ config('app.version') }}"></script>
-<script>
-    $(document).ready( function () {
-        $('#sopTable').DataTable({
-            responsive: true,
-            paging: false
-        });
-    } );
-</script>
+@vite(['resources/js/app.js'])
 </body>
 </html>

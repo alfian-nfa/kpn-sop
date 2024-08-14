@@ -1,3 +1,4 @@
+import $ from 'jquery';
 $('#submitButton').on('click', function(e) {
     e.preventDefault();
     const form = $('#submitForm').get(0);
