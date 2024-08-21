@@ -1,4 +1,8 @@
 import $ from 'jquery';
+
+import select2 from "select2"
+select2(); 
+
 $('#submitButton').on('click', function(e) {
     e.preventDefault();
     const form = $('#submitForm').get(0);
@@ -52,4 +56,8 @@ $(document).on('click', '.delete-button', function (event) {
             document.getElementById(formId).submit();
         }
     });
+});
+
+$('.form-select').select2({
+    theme: "bootstrap-5",
 });
