@@ -11,7 +11,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="mb-4">E-SOP</h2>
+            <h2 class="mb-4">E-Forms</h2>
             @if ($uploadFile)
                 <a class="btn btn-success mb-3" href="{{ route('files.create') }}">Upload New File</a>
             @endif
